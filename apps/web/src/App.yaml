@@ -1,0 +1,17 @@
+- type: login
+  label: 로그인
+- type: select
+  name: user
+  source: /users.json
+  label: 유저
+- type: table
+  name: item
+  source: /items.json?user=$user.id
+  label: 소유 중인 아이템
+- type: select
+  name: itemTemplate
+  label: 아이템
+  source: /itemTemplates.json?user=$user.id
+- type: button
+  action: /give?user=$user.id&itemTemplate=$itemTemplate.id
+  label: 지급

@@ -1,0 +1,25 @@
+# call -> 성공/실패/제출
+# call -> 성공/실패 + 데이터 반환 => 추적?
+# 후속조치
+#   call 유형에 따라 달라질 수 있다
+#   => refresh
+
+---
+# call -> 성공/실패 -> refresh
+- type: button
+  label: 동작1
+  action: link
+  url: ""
+- type: button
+  label: 동작2
+  action: link
+  url: ""
+- type: button
+  label: 동작3
+  action: link
+  url: ""
+- type: tab
+  tabs:
+    - name: 동작1
+      components:
+        -

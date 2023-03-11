@@ -1,0 +1,69 @@
+#111
+- id: select1
+  type: select
+  source: https://
+  label:
+  value:
+  help:
+- id: select2
+  type: select
+  source: https://
+  label:
+  value:
+  help:
+- id: input1
+  type: input
+  help:
+- id: input2
+  type: input
+  help:
+- id: table1
+  type: table
+  source: https://:select1/:input1/:select2
+  help:
+  fields:
+    - aa
+    - id: input3
+      type: input
+      value: row.someValue
+      help:
+    - id: button1
+      type: button
+      action: https://${input1.value}/${row.id}
+      method: ""
+      payload: ""
+      postback: true
+      post-action:
+        set-value:
+          button1: $RESPONSE
+      help:
+    - id: button2
+      type: button
+      action: https://${input1.value}/${row.id}
+      method: ""
+      payload:
+        value: :input3
+      post-action:
+        set-value:
+          action-result: $RESPONSE
+      help:
+- id: table2
+  type: loop
+  source: :button1
+  for-in:
+    start: 0
+    to: pageCount
+  children:
+    - id: buttonx
+      type: button
+      label: download
+      source: https://aaaa.a..a.a../:each
+- id: current
+  type: form
+  source: ":buttonx"
+  fields:
+    - kkk
+- type: link
+  target: #page2
+  help:
+#page2
